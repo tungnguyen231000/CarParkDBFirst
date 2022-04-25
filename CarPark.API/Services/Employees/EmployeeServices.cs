@@ -9,14 +9,10 @@ namespace CarPark.API.Services.Employees
     public class EmployeeServices : IEmployeeServices
     {
         private readonly IEmployeeRepo _employeeRepo;
-        private readonly IEmployeeRepo _repo2;
-        private readonly ICarRepo _carRepo;
 
-        public EmployeeServices(IEmployeeRepo employeeRepo, IEmployeeRepo repo2, ICarRepo carRepo)
+        public EmployeeServices(IEmployeeRepo employeeRepo)
         {
-            _employeeRepo = employeeRepo;
-            _repo2 = repo2;
-            _carRepo = carRepo;
+            _employeeRepo = employeeRepo; 
         }
 
         public int AddEmployee(Employee employee)
@@ -42,9 +38,7 @@ namespace CarPark.API.Services.Employees
         }
 
         public List<Employee> GetAllEmployees()
-        {
-            var result=_carRepo.GetAll();
-            var result2 = _employeeRepo.GetAlls();
+        { 
             return _employeeRepo.GetAlls();
         }
 
